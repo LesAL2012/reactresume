@@ -1,0 +1,11 @@
+.header {
+  /* background-color: chartreuse; */
+  background-color: chartreuse;
+  text-align: center;  
+  font-family: 'Barlow Condensed', sans-serif; 
+  
+  background: rgb(89,226,7);
+  background: linear-gradient(0deg, rgba(89,226,7,1) 0%, rgba(235,206,7,1) 100%);
+}
+
+

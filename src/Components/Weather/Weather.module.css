@@ -1,0 +1,6 @@
+.card {
+  background: rgb(72,246,72);
+  background: rgb(139,215,139);
+  background: linear-gradient(0deg, rgba(139,215,139,1) 0%, rgba(245,219,149,1) 100%);
+  border-radius: 7px;  
+}

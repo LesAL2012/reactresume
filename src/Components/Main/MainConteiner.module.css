@@ -1,0 +1,43 @@
+.description {  
+  text-align: center;  
+  font-family: 'Barlow Condensed', sans-serif;  
+  background: rgb(68,251,68);
+  background: linear-gradient(0deg, rgba(68,251,68,1) 0%, rgba(252,208,87,1) 100%);
+  border-radius: 10px;
+  border: 2px solid rgb(8, 122, 33);
+  color: black;
+  
+}
+
+.slider{
+  border: 2px solid rgb(8, 122, 33);
+  border-radius: 10px;
+  padding: 5%;
+  margin: 100px;
+  background: rgb(3,140,3);
+  background: linear-gradient(0deg, rgba(3,140,3,1) 0%, rgba(252,208,87,1) 100%);
+  width: 95%;
+  max-width: 800px;
+}
+
+.icons {    
+  text-align: center;    
+  margin: 0 0 5px 0;
+  border: 2px solid rgb(8, 122, 33);
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: rgb(5,56,16);
+  background: linear-gradient(0deg, rgba(5,56,16,1) 0%, rgba(17,167,1,1) 100%);  
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.link:hover{
+  color: white;
+  text-decoration: underline;
+}
+
+

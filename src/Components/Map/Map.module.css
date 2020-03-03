@@ -1,0 +1,11 @@
+.contentMap {  
+  height: 75vh;
+  position:relative; 
+  border: 3px solid green;  
+}
+
+.leafletContainer {
+  height: 75vh;
+  width: 100%;
+  border: 3px solid green;  
+}
