@@ -1,0 +1,44 @@
+/* -- mobile 768 px --- */
+@media screen and (max-width:2048px){  
+  .tableTextA {
+      font-size: 12px;
+  }
+}
+
+@media screen and (max-width:1200px){  
+  
+  .displayNoneA {
+      display: none;
+  }  
+}
+
+
+@media screen and (max-width:1024px){  
+  .displayNone {
+    display: none;
+  } 
+  
+}
+
+
+@media screen and (max-width:768px){  
+  
+  .tableText {
+      font-size: 14px;
+  }  
+  
+  .tableTextA {
+    font-size: 11px;
+  }
+
+}
+
+@media screen and (max-width:480px){
+  .tableText {
+      font-size: 12px;
+  }  
+  .tableTextA {
+    font-size: 9px;
+  }
+
+}

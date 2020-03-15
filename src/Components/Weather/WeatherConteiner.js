@@ -104,12 +104,6 @@ let mapStateToProps = (state) => {
 
     commonData: state.common,
     weatherData: state.weather,
-
-    // usersRedCount: state.usersRedCount,
-    // usersOnPage: state.usersOnPage,
-    // pages: state.pages,
-    // carrentPage: state.carrentPage,
-    //isLoadingPage: state.isLoadingPage,
   }
 }
 

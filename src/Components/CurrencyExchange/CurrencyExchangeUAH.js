@@ -26,7 +26,7 @@ class CurrencyExchangeContainer extends React.Component {
     super(props);
     this.state = {
       kostyl: 'https://cors-anywhere.herokuapp.com/',
-      linkHTTP: 'http://resources.finance.ua/ua/public/currency-cash.json',
+      linkHTTP: 'https://resources.finance.ua/ua/public/currency-cash.json',
       localLang: 'UA',
       date: '',
       orgTypes: {},
@@ -361,84 +361,84 @@ class CurrencyExchangeContainer extends React.Component {
               {this.state.date}
             </div>
 
-            <div className='row mb-1'>              
-                
-                  <div className='col-lg-3 col-md-3 col-sm-5 col-5 '>
-                    <div><i className="fas fa-language"></i> Local language</div>
-                    <ButtonToolbar >
-                      <ToggleButtonGroup type="radio" name="options" defaultValue={this.state.localLang}>
-                        <ToggleButton value='UA' variant="info" className='btn-sm'
-                          onClick={() => this.setLinkHTTP('http://resources.finance.ua/ua/public/currency-cash.json', 'UA')}
-                        >Ukrainian</ToggleButton>
-                        <ToggleButton value='RU' variant="info" className='btn-sm'
-                          onClick={() => this.setLinkHTTP('http://resources.finance.ua/ru/public/currency-cash.json', 'RU')}
-                        >Russian</ToggleButton>
-                      </ToggleButtonGroup>
-                    </ButtonToolbar>
-                  </div>               
-               
-                <div className='col-lg-3 col-md-4 col-sm-7 col-7 '>
-                  <div className='text-right'><i className="fas fa-sort-amount-up-alt"></i> Sort by ...</div>
-                  <ButtonToolbar className='float-right'>
-                    <ToggleButtonGroup type="radio" name="options" >
+            <div className='row mb-1'>
 
-                      <ToggleButton  value={'Cities'} variant="success" className='btn-sm'
-                        onClick={(event) => this.setSort(event, 'city')}
-                      ><i className="fas fa-city"></i> Cities
-                        </ToggleButton>
-
-                      <ToggleButton value={'Address'} variant="success" className='btn-sm'
-                        onClick={(event) => this.setSort(event, 'address')}
-                      ><i className="fas fa-map-marker-alt"></i> Address
-                        </ToggleButton>
-                        
-                      <ToggleButton value={'Phone'} variant="success" className='btn-sm'
-                        onClick={(event) => this.setSort(event, 'phone')}
-                      ><i className="fas fa-phone-volume"></i> Phone
-                        </ToggleButton>
-
-                    </ToggleButtonGroup>
-                  </ButtonToolbar>
-                </div>               
-
-                <div className='col-lg-4 col-md-5 col-sm-8 col-12 '>
-                  <div className='text-right'><i className="fas fa-sort-amount-up-alt"></i> Sort by ...</div>
-                  <ButtonToolbar className='float-right'>
-                    <ToggleButtonGroup type="radio" name="options" >
-
-                      <ToggleButton value={'Bank Names'} variant="success" className='btn-sm'
-                        onClick={(event) => this.setSort(event, 'title')}
-                      ><i className="fas fa-university"></i> Bank Names
-                          </ToggleButton>
-
-                      <ToggleButton value={'Branch'} variant="success" className='btn-sm'
-                        onClick={(event) => this.setSort(event, 'bankBranch')}
-                      ><i className="fas fa-code-branch"></i> Branch
-                          </ToggleButton>
-
-                      <ToggleButton value={'Currencies'} variant="success" className='btn-sm'
-                        onClick={(event) => this.setSort(event, 'currencies')}
-                      ><i className="far fa-money-bill-alt"></i> Currencies
-                        </ToggleButton>
-
-                    </ToggleButtonGroup>
-                  </ButtonToolbar>
-                </div>
-
-                <div className='col-lg-2 col-md-4 col-sm-4 col-12 '>
-                    <div className='text-left'><i className="fas fa-toggle-on"></i> Include: On/Off</div>
-                    <ButtonToolbar className='float-left'>
-                      <ToggleButtonGroup  type="checkbox" name="options" defaultValue={[1]}>
-                        <ToggleButton value={1} variant="success" className='btn-sm'
-                          onClick={(event) => this.bankBranch(event, 1)}
-                        >{this.state.orgTypes['1']}</ToggleButton>
-                        <ToggleButton value={2} variant="success" className='btn-sm'
-                          onClick={(event) => this.bankBranch(event, 2)}
-                        >{this.state.orgTypes['2']}</ToggleButton>
-                      </ToggleButtonGroup>
-                    </ButtonToolbar>
-                  </div>
+              <div className='col-lg-3 col-md-3 col-sm-5 col-5 '>
+                <div><i className="fas fa-language"></i> Local language</div>
+                <ButtonToolbar >
+                  <ToggleButtonGroup type="radio" name="options" defaultValue={this.state.localLang}>
+                    <ToggleButton value='UA' variant="info" className='btn-sm'
+                      onClick={() => this.setLinkHTTP('https://resources.finance.ua/ua/public/currency-cash.json', 'UA')}
+                    >Ukrainian</ToggleButton>
+                    <ToggleButton value='RU' variant="info" className='btn-sm'
+                      onClick={() => this.setLinkHTTP('https://resources.finance.ua/ru/public/currency-cash.json', 'RU')}
+                    >Russian</ToggleButton>
+                  </ToggleButtonGroup>
+                </ButtonToolbar>
               </div>
+
+              <div className='col-lg-3 col-md-4 col-sm-7 col-7 '>
+                <div className='text-right'><i className="fas fa-sort-amount-up-alt"></i> Sort by ...</div>
+                <ButtonToolbar className='float-right'>
+                  <ToggleButtonGroup type="radio" name="options" >
+
+                    <ToggleButton value={'Cities'} variant="success" className='btn-sm'
+                      onClick={(event) => this.setSort(event, 'city')}
+                    ><i className="fas fa-city"></i> Cities
+                        </ToggleButton>
+
+                    <ToggleButton value={'Address'} variant="success" className='btn-sm'
+                      onClick={(event) => this.setSort(event, 'address')}
+                    ><i className="fas fa-map-marker-alt"></i> Address
+                        </ToggleButton>
+
+                    <ToggleButton value={'Phone'} variant="success" className='btn-sm'
+                      onClick={(event) => this.setSort(event, 'phone')}
+                    ><i className="fas fa-phone-volume"></i> Phone
+                        </ToggleButton>
+
+                  </ToggleButtonGroup>
+                </ButtonToolbar>
+              </div>
+
+              <div className='col-lg-4 col-md-5 col-sm-8 col-12 '>
+                <div className='text-right'><i className="fas fa-sort-amount-up-alt"></i> Sort by ...</div>
+                <ButtonToolbar className='float-right'>
+                  <ToggleButtonGroup type="radio" name="options" >
+
+                    <ToggleButton value={'Bank Names'} variant="success" className='btn-sm'
+                      onClick={(event) => this.setSort(event, 'title')}
+                    ><i className="fas fa-university"></i> Bank Names
+                          </ToggleButton>
+
+                    <ToggleButton value={'Branch'} variant="success" className='btn-sm'
+                      onClick={(event) => this.setSort(event, 'bankBranch')}
+                    ><i className="fas fa-code-branch"></i> Branch
+                          </ToggleButton>
+
+                    <ToggleButton value={'Currencies'} variant="success" className='btn-sm'
+                      onClick={(event) => this.setSort(event, 'currencies')}
+                    ><i className="far fa-money-bill-alt"></i> Currencies
+                        </ToggleButton>
+
+                  </ToggleButtonGroup>
+                </ButtonToolbar>
+              </div>
+
+              <div className='col-lg-2 col-md-4 col-sm-4 col-12 '>
+                <div className='text-left'><i className="fas fa-toggle-on"></i> Include: On/Off</div>
+                <ButtonToolbar className='float-left'>
+                  <ToggleButtonGroup type="checkbox" name="options" defaultValue={[1]}>
+                    <ToggleButton value={1} variant="success" className='btn-sm'
+                      onClick={(event) => this.bankBranch(event, 1)}
+                    >{this.state.orgTypes['1']}</ToggleButton>
+                    <ToggleButton value={2} variant="success" className='btn-sm'
+                      onClick={(event) => this.bankBranch(event, 2)}
+                    >{this.state.orgTypes['2']}</ToggleButton>
+                  </ToggleButtonGroup>
+                </ButtonToolbar>
+              </div>
+            </div>
 
             <div id="accordion" >
               <div className={"card " + css.bgAccordion}>
@@ -673,7 +673,7 @@ class CurrencyExchangeContainer extends React.Component {
                                 <td style={{ border: '1px solid #17a2b8' }}>{element.title}</td>
                                 <td style={{ border: '1px solid #17a2b8' }}>{element.city}</td>
                                 <td className={css.displayNone} style={{ border: '1px solid #17a2b8' }}>{element.address}</td>
-                                <td className={css.displayNone}  style={{ border: '1px solid #17a2b8' }}>{element.phone}</td>
+                                <td className={css.displayNone} style={{ border: '1px solid #17a2b8' }}>{element.phone}</td>
                               </tr>
                             ))
                           :
@@ -685,7 +685,7 @@ class CurrencyExchangeContainer extends React.Component {
                             <td style={{ border: '1px solid #17a2b8' }}>-</td>
                             <td style={{ border: '1px solid #17a2b8' }}>-</td>
                             <td className={css.displayNone} style={{ border: '1px solid #17a2b8' }}>-</td>
-                            <td className={css.displayNone}  style={{ border: '1px solid #17a2b8' }}>-</td>
+                            <td className={css.displayNone} style={{ border: '1px solid #17a2b8' }}>-</td>
                           </tr>
                       }
 

@@ -28,7 +28,7 @@ const Map = (props) => {
             easeLinearity={0.4}
         >
             <TileLayer
-                url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+                url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
             />
             <Marker position=
                 {[

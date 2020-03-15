@@ -56,10 +56,8 @@ let Weather = (props) => {
                             <div className="col-md-4 col-sm-6 col-6  text-center pt-2">
 
                                 <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
-                                    {new Date(cw.dt * 1000).toLocaleDateString()}<br />
-                                    {new Date(cw.dt * 1000).getHours()}:
-                                    {new Date(cw.dt * 1000).getMinutes()}:
-                                    {new Date(cw.dt * 1000).getSeconds()}
+                                    {new Date(cw.dt * 1000).toLocaleDateString()}<br />                                    
+                                    {new Date(cw.dt * 1000).toLocaleTimeString()}                                    
                                 </span><br />
 
                                 <img src={`https://openweathermap.org/img/wn/${cw.weather[0].icon}@2x.png`} className="card-img" alt="weatherIcon" style={{ maxWidth: '120px', marginBottom: '-15px' }} />
@@ -138,14 +136,14 @@ let Weather = (props) => {
 
                 <div className='col-lg-7 col-md-7'>
 
-                    <div className={"card mb-3 " + css.card} >
-                        <div className="row no-gutters" style={{ marginBottom: '-40px' }}>
-                            <div className="col-md-4 col-sm-6 col-6  text-center pt-2">
+                    <div className={"card " + css.card} >
+                        <div className="row no-gutters " >
+                            <div className="col-md-4 col-sm-6 col-6  text-center mt-3">
                                 <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
                                     {fd.list[0].dt_txt.slice(0, -9)}
                                 </span><br />
                             </div>
-                            <div className="col-md-8 col-sm-6 col-6">
+                            <div className="col-md-8 col-sm-6 col-6 " style={{ margin: ' -5px 0 -30px 0' }}>
                                 <div className="card-body">
                                     <h5 className="card-title">Current Day</h5>
                                 </div>
@@ -167,7 +165,7 @@ let Weather = (props) => {
                                     day01.map(el => <tr key={el.dt_txt + '01'}>
                                         <td key={el.dt_txt}>{el.dt_txt.slice(11, -3)}</td>
                                         <td key={el.dt_txt + 'i'}>
-                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-21px 0' }} />
+                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-16px 0' }} />
                                         </td>
                                         <td key={el.dt_txt + 't'}>{Math.round(el.main.temp - 273.15)}</td>
                                         <td key={el.dt_txt + 'w'}>{el.wind.speed}</td>
@@ -186,18 +184,15 @@ let Weather = (props) => {
             <div className='row'>
                 <div className='col-lg-3 col-md-6 col-sm-6'>
                     <div className={"card mb-3 " + css.card}>
-                        <div className="row no-gutters" style={{ marginBottom: '-40px' }}>
-                            <div className="col-md-5 col-sm-6 col-6  text-center pt-2">
-                                <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
-                                    {day02[0].dt_txt.slice(0, -9)}
-                                </span><br />
-                            </div>
-                            <div className="col-md-7 col-sm-6 col-6">
-                                <div className="card-body">
-                                    <h5 className="card-title">2nd day</h5>
-                                </div>
-                            </div>
+
+                        <div className='text-center mt-3'>
+                            <span style={{ color: 'rgb(0,0,255)', fontWeight: 600 }}>
+                                {day02[0].dt_txt.slice(0, -9)}
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                                <b>2nd day</b>
                         </div>
+
                         <hr />
                         <table className="card-text mx-3 text-center">
                             <thead>
@@ -213,7 +208,7 @@ let Weather = (props) => {
                                     day02.map(el => <tr key={el.dt_txt + '02'}>
                                         <td key={el.dt_txt}>{el.dt_txt.slice(11, -3)}</td>
                                         <td key={el.dt_txt + 'i'}>
-                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-19px 0' }} />
+                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-12px 0' }} />
                                         </td>
                                         <td key={el.dt_txt + 't'}>{Math.round(el.main.temp - 273.15)}</td>
                                         <td key={el.dt_txt + 'w'}>{el.wind.speed}</td>
@@ -225,17 +220,12 @@ let Weather = (props) => {
                 </div>
                 <div className='col-lg-3 col-md-6 col-sm-6'>
                     <div className={"card mb-3 " + css.card}>
-                        <div className="row no-gutters" style={{ marginBottom: '-40px' }}>
-                            <div className="col-md-5 col-sm-6 col-6  text-center pt-2">
-                                <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
-                                    {day03[0].dt_txt.slice(0, -9)}
-                                </span><br />
-                            </div>
-                            <div className="col-md-7 col-sm-6 col-6">
-                                <div className="card-body">
-                                    <h5 className="card-title">3rd day</h5>
-                                </div>
-                            </div>
+                        <div className='text-center mt-3'>
+                            <span style={{ color: 'rgb(0,0,255)', fontWeight: 600 }}>
+                                {day03[0].dt_txt.slice(0, -9)}
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                                <b>3rd day</b>
                         </div>
                         <hr />
                         <table className="card-text mx-3 text-center">
@@ -252,7 +242,7 @@ let Weather = (props) => {
                                     day03.map(el => <tr key={el.dt_txt + '03'}>
                                         <td key={el.dt_txt}>{el.dt_txt.slice(11, -3)}</td>
                                         <td key={el.dt_txt + 'i'}>
-                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-19px 0' }} />
+                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-12px 0' }} />
                                         </td>
                                         <td key={el.dt_txt + 't'}>{Math.round(el.main.temp - 273.15)}</td>
                                         <td key={el.dt_txt + 'w'}>{el.wind.speed}</td>
@@ -264,17 +254,12 @@ let Weather = (props) => {
                 </div>
                 <div className='col-lg-3 col-md-6 col-sm-6'>
                     <div className={"card mb-3 " + css.card}>
-                        <div className="row no-gutters" style={{ marginBottom: '-40px' }}>
-                            <div className="col-md-5 col-sm-6 col-6  text-center pt-2">
-                                <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
-                                    {day04[0].dt_txt.slice(0, -9)}
-                                </span><br />
-                            </div>
-                            <div className="col-md-7 col-sm-6 col-6">
-                                <div className="card-body">
-                                    <h5 className="card-title">4th day</h5>
-                                </div>
-                            </div>
+                        <div className='text-center mt-3'>
+                            <span style={{ color: 'rgb(0,0,255)', fontWeight: 600 }}>
+                                {day04[0].dt_txt.slice(0, -9)}
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                                <b>4th day</b>
                         </div>
                         <hr />
                         <table className="card-text mx-3 text-center">
@@ -291,7 +276,7 @@ let Weather = (props) => {
                                     day04.map(el => <tr key={el.dt_txt + '04'}>
                                         <td key={el.dt_txt}>{el.dt_txt.slice(11, -3)}</td>
                                         <td key={el.dt_txt + 'i'}>
-                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-19px 0' }} />
+                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-12px 0' }} />
                                         </td>
                                         <td key={el.dt_txt + 't'}>{Math.round(el.main.temp - 273.15)}</td>
                                         <td key={el.dt_txt + 'w'}>{el.wind.speed}</td>
@@ -303,17 +288,12 @@ let Weather = (props) => {
                 </div>
                 <div className='col-lg-3 col-md-6 col-sm-6'>
                     <div className={"card mb-3 " + css.card}>
-                        <div className="row no-gutters" style={{ marginBottom: '-40px' }}>
-                            <div className="col-md-5 col-sm-6 col-6  text-center pt-2">
-                                <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
-                                    {day05[0].dt_txt.slice(0, -9)}
-                                </span><br />
-                            </div>
-                            <div className="col-md-7 col-sm-6 col-6">
-                                <div className="card-body">
-                                    <h5 className="card-title">5th day</h5>
-                                </div>
-                            </div>
+                        <div className='text-center mt-3'>
+                            <span style={{ color: 'rgb(0,0,255)', fontWeight: 600 }}>
+                                {day05[0].dt_txt.slice(0, -9)}
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                                <b>5th day</b>
                         </div>
                         <hr />
                         <table className="card-text mx-3 text-center">
@@ -330,7 +310,7 @@ let Weather = (props) => {
                                     day05.map(el => <tr key={el.dt_txt + '05'}>
                                         <td key={el.dt_txt}>{el.dt_txt.slice(11, -3)}</td>
                                         <td key={el.dt_txt + 'i'}>
-                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-19px 0' }} />
+                                            <img src={`https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} alt="weatherIcon" style={{ maxWidth: '60%', margin: '-12px 0' }} />
                                         </td>
                                         <td key={el.dt_txt + 't'}>{Math.round(el.main.temp - 273.15)}</td>
                                         <td key={el.dt_txt + 'w'}>{el.wind.speed}</td>

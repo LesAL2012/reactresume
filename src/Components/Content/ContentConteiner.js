@@ -4,6 +4,10 @@ import css from './Content.module.css';
 //import WeatherContainer from '../Weather/WeatherConteiner';
 //import MapContainer from '../Map/MapConteiner';
 //import CurrencyExchangeConteiner from '../CurrencyExchange/CurrencyExchangeConteiner';
+import ReportsAgroTechnicConteiner from '../ReportsAgro/ReportsAgroTechnicConteiner';
+import AdminPanelConteiner from '../AdminPanel/AdminPanelConteiner';
+import AgroData from '../AgroData/AgroData';
+
 
 import {
   Switch,
@@ -18,20 +22,24 @@ const CurrencyExchangeConteiner = lazy(() => import('../CurrencyExchange/Currenc
 const ContentContainer = (props) => {
 
   return (
-    <div className={css.content} >
-      <Suspense fallback={<div>Loading...</div>}>
-        <Switch>
-          <Route exact path="/" component={MainContainer} />
-          <Route exact path="/weather" render={() => <WeatherContainer />} />
-          <Route exact path="/map" render={() => <MapContainer />} />
-          <Route exact path="/currencyexchange" render={() => <CurrencyExchangeConteiner />} />
+    <div className="container" >
+      <div className={css.content} >
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={MainContainer} />
+            <Route exact path="/weather" render={() => <WeatherContainer />} />
+            <Route exact path="/map" render={() => <MapContainer />} />
+            <Route exact path="/currencyexchange" render={() => <CurrencyExchangeConteiner />} />
+            <Route exact path="/reportsagromachinery" render={() => <ReportsAgroTechnicConteiner />} />
+            <Route exact path="/admin" render={() => <AdminPanelConteiner />} />
+            <Route exact path="/agrodata" render={() => <AgroData />} />
 
 
-          {/* <Route exact path="/blue" component={ContentBlue} />
-          <Route exact path="/profile/:userId" render={() => <ContentProfileContainer />} /> */}
-        </Switch>
-      </Suspense>
+          </Switch>
+        </Suspense>
+      </div >
     </div >
+
   )
 
 }

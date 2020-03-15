@@ -43,16 +43,19 @@
         font-size: 14px;
     }
     
+.displayNone{
+        display: none;
+    }  
+
+
 }
 
-@media screen and (max-width:730px){
+@media screen and (max-width:480px){
     .tableText 
      {
         font-size: 12px;
     }
-    .displayNone{
-        display: none;
-    }  
+    
 }
 
 

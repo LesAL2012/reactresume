@@ -2,42 +2,58 @@ import React from 'react';
 import HeaderContainer from '../Header/HeaderContainer';
 import FooterContainer from '../Footer/FooterContainer';
 import ContentContainer from '../Content/ContentConteiner';
+import LogOutButton from '../LogInOut/LogOutButton';
+import NavAdmin from './NavAdmin';
 import css from './App.module.css';
 
 import {
   Navbar, Nav,
-  // NavDropdown 
+  NavDropdown
 } from 'react-bootstrap';
 
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
 
-function App() {
+function App(props) {
   return (
-    
-    <div className='container-fluid p-0' style={{ maxWidth: '1170px' }}>
-      
-      <div className={css.AppWrapper} >
 
-        <HeaderContainer />
+    <div className={css.AppWrapper} tyle={{ maxWidth: '1170px', margin: '0 auto' }}  >
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <HeaderContainer />
+
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <div className='container' >
 
           <Navbar.Brand href="/">Main</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
 
+              {
+                localStorage.getItem('reactUserLogin')
+                  ?
+                  <NavDropdown title="Agro" id="collasible-nav-dropdown">
+
+
+
+                    <NavDropdown.Item href="/agrodata">Live Agro-Data in CHARTS</NavDropdown.Item>
+                    <NavDropdown.Item href="/reportsagromachinery">Report - Readiness of machinery and equipment</NavDropdown.Item>
+
+                    {/* <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+                    <NavDropdown.Divider />
+                    <NavAdmin />
+
+                  </NavDropdown>
+                  :
+                  <Nav.Link href="/agrodata">AGRO DATA</Nav.Link>
+              }
+
               <Nav.Link href="/currencyexchange">Currency exchange</Nav.Link>
               <Nav.Link href="/map">Map</Nav.Link>
               <Nav.Link href="/weather">Weather</Nav.Link>
 
-              {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown> */}
 
             </Nav>
 
@@ -48,18 +64,32 @@ function App() {
               </Nav.Link>
             </Nav> */}
 
+            <LogOutButton />
+
           </Navbar.Collapse>
+        </div >
+      </Navbar>
 
-        </Navbar>
-
+      <div className={css.content} >
         <ContentContainer />
-
-        <FooterContainer />
-
       </div >
+
+      <div className={css.footer} >
+        <FooterContainer />
+      </div >
+
     </div >
-    
+
   );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+    commonData: state.common,
+  }
+}
+
+export default compose(
+  connect(mapStateToProps, {
+  }),
+)(App);

@@ -1,9 +1,7 @@
-.content {
-    flex: 1 0 auto;
-    
-    padding: 10px;
-    
-    margin: 5px 10px;
+.content {    
+    padding: 10px;    
+    margin: 5px 0;
     border: 3px solid darkred;
     border-radius: 7px;
+    min-height: 80vh;  
 }

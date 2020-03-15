@@ -5,10 +5,18 @@ import iconWeather from '../../assets/img/icon_weather_react.png';
 import iconMap from '../../assets/img/icon_map_react.png';
 import iconCurrencyExchange from '../../assets/img/icon_currency_exchange_react.png';
 import iconCurrencyExchangeUA from '../../assets/img/icon_currency_exchange_react_UA.png';
+import iconAgroData from '../../assets/img/icon_agro_data.png';
 
 import { Nav } from 'react-bootstrap';
 
 const data = {
+
+  agroData: {
+    title: 'Big Data: agricultural',
+    desc: "Summary corporation data. Google Charts. Editing data in a browser",
+    linkImg: iconAgroData,
+    linkHTTP: '/agrodata',
+  },
 
   currencyExchange: {
     title: 'Currency exchange',

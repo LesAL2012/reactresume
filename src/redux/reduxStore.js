@@ -3,6 +3,7 @@ import weatherReducer from './weatherReducer';
 import commonReducer from './commonReducer';
 import mapsReducer from './mapsReducer';
 import currencyExchangeReducer from './currencyExchangeReducer';
+import techReducer from './techReducer';
 
 import thunkMiddleware from "redux-thunk";
 
@@ -12,7 +13,8 @@ let reducers = combineReducers({
     common: commonReducer,
     weather: weatherReducer,
     maps: mapsReducer,
-    currencyExchange: currencyExchangeReducer
+    currencyExchange: currencyExchangeReducer,
+    tech: techReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
