@@ -8,6 +8,7 @@ import Weather from './Weather';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import ConnectionAllow from '../../assets/img/ConnectionAllow.png';
 
 
 class WeatherContainer extends React.Component {
@@ -16,23 +17,13 @@ class WeatherContainer extends React.Component {
     this.state = {
       urlWeather: 'https://api.openweathermap.org/data/2.5/',
       appid: 'YOUR-KEY',
+      
+      showConnectAllow: 'd-none'
     };
-
   }
 
   componentDidMount() {
-    this.navGeo();
-  }
-
-
-  navGeo = () => {
-    navigator.geolocation.getCurrentPosition(position => {
-      let latlon = {
-        latitude: (position.coords.latitude).toFixed(2),
-        longitude: position.coords.longitude.toFixed(2)
-      }
-      this.props.gdGeoCoordinats(JSON.stringify(latlon));
-    });
+    this.props.gdGeoCoordinats(2);
   }
 
   getCurrentWeatherData = () => {
@@ -72,8 +63,27 @@ class WeatherContainer extends React.Component {
     });
   }
 
+  showHideConnectAllow = () => {
+    if (this.state.showConnectAllow === 'd-none') {
+      this.setState({ showConnectAllow: 'd-block' });
+    } else {
+      this.setState({ showConnectAllow: 'd-none' });
+    }
+  }
+
   render() {
     return <>
+    {
+        this.props.commonData.geoIP
+        &&
+        <div className="mb-3 text-center" onClick={this.showHideConnectAllow} style={{ cursor: 'pointer' }}>
+          <h6 className="text-danger"  >
+            Geo-coordinates are defined by IP with low accuracy<br />
+            Show: how to disable browser lock and improve the accuracy of geo-coordinates
+            </h6>
+          <img className={"mx-auto " + this.state.showConnectAllow} src={ConnectionAllow} alt='connection' />
+        </div>
+      }
 
       {
         this.props.commonData.preloaserStatus === true
@@ -104,6 +114,7 @@ let mapStateToProps = (state) => {
 
     commonData: state.common,
     weatherData: state.weather,
+
   }
 }
 

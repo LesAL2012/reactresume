@@ -34,7 +34,7 @@ class LogIn extends React.Component {
                                 <Form.Control type="password" defaultValue="Mechanic34" />
                             </Form.Group>
 
-                            <p><span className="text-primary font-weight-bold">Use for enter:</span><br />
+                            <p><span className="text-primary font-weight-bold">Use for enter (user rights):</span><br />
                                 <b>Login:</b> mechanic34@ent<br />
                                 <b>Password:</b> Mechanic34
                         </p>

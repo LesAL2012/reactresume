@@ -6,8 +6,9 @@ let initialState = {
 
     geoCoordinats: {
         latitude: null,
-        longitude: null
+        longitude: null,
     },
+    geoIP: false,
 
     authLogin: false,
 
@@ -23,6 +24,12 @@ const commonReducer = (state = initialState, action) => {
             return {
                 ...state,
                 geoCoordinats: JSON.parse(action.newData),
+            };
+
+        case SET_GEO_IP:
+            return {
+                ...state,
+                geoIP: action.newData,
             };
 
         case SET_PRELOADER_STATUS:
@@ -53,6 +60,7 @@ const commonReducer = (state = initialState, action) => {
 //Const to switch - ActionCreater
 
 const SET_GEO_COORDINATS = 'SET_GEO_COORDINATS';
+const SET_GEO_IP = 'SET_GEO_IP';
 const SET_PRELOADER_STATUS = 'SET_PRELOADER_STATUS';
 const SET_AUTH_LOGIN = 'SET_AUTH_LOGIN';
 const SET_AGRO_BUNNER = 'SET_AGRO_BUNNER';
@@ -60,14 +68,46 @@ const SET_AGRO_BUNNER = 'SET_AGRO_BUNNER';
 //ActionCreaters
 
 let setGeoCoordinats = (GeoCoordinats) => ({ type: SET_GEO_COORDINATS, newData: GeoCoordinats });
+let setGeoIP = (GeoIP) => ({ type: SET_GEO_IP, newData: GeoIP });
 let setPreloaserStatus = (PreloaserStatus) => ({ type: SET_PRELOADER_STATUS, newData: PreloaserStatus });
 let setAuthLogin = (AuthLogin) => ({ type: SET_AUTH_LOGIN, newData: AuthLogin });
 let setAgroBunner = (AgroBunner) => ({ type: SET_AGRO_BUNNER, newData: AgroBunner });
 
 
-export const gdGeoCoordinats = (Geo) => {
+export const gdGeoCoordinats = (fixed) => {
     return (dispatch) => {
-        dispatch(setGeoCoordinats(Geo));
+
+        navigator.geolocation.getCurrentPosition((
+            position => {
+                let latlon = {
+                    latitude: (position.coords.latitude).toFixed(fixed),
+                    longitude: (position.coords.longitude).toFixed(fixed)
+                }
+                dispatch(setGeoCoordinats(JSON.stringify(latlon)));
+            }),
+            getGeoByIP
+        );
+
+        function getGeoByIP() {
+            let IP = new Promise((resolve, reject) => {
+                fetch('https://cors-anywhere.herokuapp.com/https://api.ipify.org?format=json')
+                    .then(res => resolve(res.json()))
+            });
+
+            Promise.all([IP]).then(value => {
+                fetch('https://cors-anywhere.herokuapp.com/http://ip-api.com/json/' + value[0].ip)
+                    .then(res => res.json())
+                    .then(res => {
+                        let latlon = {
+                            latitude: (res.lat),
+                            longitude: (res.lon)
+                        }
+                        dispatch(setGeoCoordinats(JSON.stringify(latlon)));
+                        dispatch(setGeoIP(true));
+                    });
+
+            });
+        }
     }
 }
 

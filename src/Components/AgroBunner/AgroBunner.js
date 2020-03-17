@@ -6,7 +6,7 @@ import css from './AgroBunner.module.css';
 import MWcss from './ModalWindow.module.css';
 import { getAgroBunnerImg } from '../../redux/selector-agro';
 import { Button, Modal } from 'react-bootstrap';
-import touchAdnMove from '../../assets/img/icon_touch_and_move_64px.png';
+import touchAdnMove from '../../assets/img/icon_touch_and_move_32px.png';
 
 class LogIn extends React.Component {
     constructor(props) {
