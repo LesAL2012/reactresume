@@ -31,7 +31,6 @@ let Weather = (props) => {
 
 
     return <div>
-
         {JSON.stringify(cw) !== '{}' ? <div className='row'>
             <div className='col-lg-6 col-md-6 text-left '>
                 <b>The Weather forecast - <span style={{ color: 'brown' }}>{cw.name}, {cw.sys.country} </span></b>
@@ -56,8 +55,8 @@ let Weather = (props) => {
                             <div className="col-md-4 col-sm-6 col-6  text-center pt-2">
 
                                 <span style={{ color: 'rgb(0,0,255)', fontWeight: 600, marginLeft: '4px' }}>
-                                    {new Date(cw.dt * 1000).toLocaleDateString()}<br />                                    
-                                    {new Date(cw.dt * 1000).toLocaleTimeString()}                                    
+                                    {new Date(cw.dt * 1000).toLocaleDateString()}<br />
+                                    {new Date(cw.dt * 1000).toLocaleTimeString()}
                                 </span><br />
 
                                 <img src={`https://openweathermap.org/img/wn/${cw.weather[0].icon}@2x.png`} className="card-img" alt="weatherIcon" style={{ maxWidth: '120px', marginBottom: '-15px' }} />
@@ -123,11 +122,18 @@ let Weather = (props) => {
                                     <td className="text-right">{cw.main.pressure.toLocaleString('ru')}</td>
                                     <td className="pl-2">hpa</td>
                                 </tr>
-                                <tr>
-                                    <td >Visibility</td>
-                                    <td className="text-right"> {cw.visibility.toLocaleString('ru')}</td>
-                                    <td className="pl-2">m</td>
-                                </tr>
+
+                                {
+                                    //visibility - не всегда приходит с сервера
+                                    cw.visibility
+                                    &&
+                                    <tr>
+                                        <td >Visibility</td>
+                                        <td className="text-right"> {cw.visibility.toLocaleString('ru')}</td>
+                                        <td className="pl-2">m</td>
+                                    </tr>
+                                }
+
                             </tbody>
                         </table>
                     </div>
