@@ -22,8 +22,8 @@ export default class Map extends Component {
 
         return (
             <HPlatform
-                app_id='YOUR-KEY'
-                app_code='YOUR-KEY'
+                app_id="xmSLvX9TuZ8nsh1fLdTe"
+                app_code="cmjkj9PWBaWj5znuOX3JzvEs2OLUQstvGTHzz21u3CI"
                 useCIT
                 useHTTPS
                 includeUI

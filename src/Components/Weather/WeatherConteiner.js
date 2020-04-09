@@ -16,14 +16,20 @@ class WeatherContainer extends React.Component {
     super(props);
     this.state = {
       urlWeather: 'https://api.openweathermap.org/data/2.5/',
-      appid: 'YOUR-KEY',
-      
+      appid: 'bac294da046c622a0bae1f376bd4be26',
+
       showConnectAllow: 'd-none'
     };
   }
 
   componentDidMount() {
     this.props.gdGeoCoordinats(2);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.commonData.geoCoordinats !== prevProps.commonData.geoCoordinats) {
+      this.props.gdGeoCoordinats(2);
+    }
   }
 
   getCurrentWeatherData = () => {
@@ -73,7 +79,7 @@ class WeatherContainer extends React.Component {
 
   render() {
     return <>
-    {
+      {
         this.props.commonData.geoIP
         &&
         <div className="mb-3 text-center" onClick={this.showHideConnectAllow} style={{ cursor: 'pointer' }}>

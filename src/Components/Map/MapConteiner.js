@@ -28,6 +28,12 @@ class MapContainer extends React.Component {
     this.props.gdGeoCoordinats(5);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.commonData.geoCoordinats !== prevProps.commonData.geoCoordinats) {
+      this.props.gdGeoCoordinats(5);
+    }
+  }
+
   setMap = (map) => {
     this.props.gdCurrentMap(map)
   }
@@ -44,18 +50,18 @@ class MapContainer extends React.Component {
 
     if (this.props.commonData.geoCoordinats.latitude !== null) {
       return <>
-      {
-        this.props.commonData.geoIP
-        &&
-        <div className="mb-3 text-center" onClick={this.showHideConnectAllow} style={{ cursor: 'pointer' }}>
-          <h6 className="text-danger"  >
-            Geo-coordinates are defined by IP with low accuracy<br />
+        {
+          this.props.commonData.geoIP
+          &&
+          <div className="mb-3 text-center" onClick={this.showHideConnectAllow} style={{ cursor: 'pointer' }}>
+            <h6 className="text-danger"  >
+              Geo-coordinates are defined by IP with low accuracy<br />
             Show: how to disable browser lock and improve the accuracy of geo-coordinates
             </h6>
-          <img className={"mx-auto " + this.state.showConnectAllow} src={ConnectionAllow} alt='connection' />
-        </div>
-      }
-        
+            <img className={"mx-auto " + this.state.showConnectAllow} src={ConnectionAllow} alt='connection' />
+          </div>
+        }
+
         <div className='text-center mb-2'>
           <ToggleButtonGroup size="sm" type="radio" name="options" defaultValue={1} >
             <ToggleButton onClick={() => { this.setMap('Leaflet') }} value={1} variant="success">Leaflet Maps</ToggleButton>
@@ -75,7 +81,6 @@ class MapContainer extends React.Component {
           </div>
         </div>
 
-
         {
           this.props.mapsData.map === 'Leaflet'
             ?
@@ -94,33 +99,19 @@ class MapContainer extends React.Component {
               />
         }
 
-
-
-
-
       </>
     } else {
       return <>
       </>
     }
-
-
   }
 }
 
 let mapStateToProps = (state) => {
   return {
     // связка с редакс стором - reduxStore,
-
     commonData: state.common,
-    mapsData: state.maps,
-
-
-    // usersRedCount: state.usersRedCount,
-    // usersOnPage: state.usersOnPage,
-    // pages: state.pages,
-    // carrentPage: state.carrentPage,
-    //isLoadingPage: state.isLoadingPage,
+    mapsData: state.maps,    
   }
 }
 
@@ -128,7 +119,6 @@ export default compose(
   connect(mapStateToProps, {
 
     gdGeoCoordinats,
-
     gdCurrentMap
 
   }),

@@ -46,6 +46,12 @@ class LogIn extends React.Component {
         if (event.key === 'Escape' && this.state.displayModalWindow === 'flex') {
             this.closeModalSlider();
         };
+        if (event.key === 'ArrowRight' && this.state.displayModalWindow === 'flex') {
+            this.sliderDown();
+        };
+        if (event.key === 'ArrowLeft' && this.state.displayModalWindow === 'flex') {           
+            this.sliderUp();
+        };        
     }
 
     showModalSlider = (index) => {

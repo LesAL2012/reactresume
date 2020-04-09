@@ -6,6 +6,8 @@ import iconMap from '../../assets/img/icon_map_react.png';
 import iconCurrencyExchange from '../../assets/img/icon_currency_exchange_react.png';
 import iconCurrencyExchangeUA from '../../assets/img/icon_currency_exchange_react_UA.png';
 import iconAgroData from '../../assets/img/icon_agro_data.png';
+import iconToDoList from '../../assets/img/icon_to_do_list.png';
+import iconToDoListPHP from '../../assets/img/icon_to_do_list_PHP.png';
 
 import { Nav } from 'react-bootstrap';
 
@@ -26,10 +28,24 @@ const data = {
   },
 
   currencyExchangeUA: {
-    title: 'Ukrainian banks',
+    title: 'UA banks: live exchange',
     desc: 'Two API of сurrency exchange of Ukrainian banks (Local language)  - sort by bank name, city, phone, address ...',
     linkImg: iconCurrencyExchangeUA,
     linkHTTP: '/currencyexchange',
+  },  
+
+  todolistPHP: {
+    title: 'To-do list: NO JS (clear PHP)',
+    desc: 'Add and edit tasks',
+    linkImg: iconToDoListPHP,
+    linkHTTP: 'https://php-task-1.ts.biz.ua/index.php?page=0&DESC=DESC&order=id',
+  },
+
+  todolist: {
+    title: 'To-do list: SQL&PHP',
+    desc: 'Language switching, adding, editing and deleting users, clients and tasks',
+    linkImg: iconToDoList,
+    linkHTTP: 'https://react-task-1-d596b.web.app/',
   },
 
   map: {
@@ -40,11 +56,11 @@ const data = {
   },
 
   weather: {
-    title: 'Weather forecast',
+    title: 'Weather forecast:',
     desc: 'Two API.openweathermap by geographic coordinates, Promise.all - current day & 5 day weather forecast',
     linkImg: iconWeather,
     linkHTTP: '/weather',
-  },
+  },  
 }
 
 
